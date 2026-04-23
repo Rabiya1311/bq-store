@@ -129,3 +129,5 @@ Possible failure points:
 - If the network request fails, the UI should show an error message like "Network error, please try again."
 - If validation fails (missing fields), the UI should highlight the incorrect inputs.
 - If permission is denied by Firebase rules, the UI should show "You do not have permission to p
+
+Workflow verified on date
