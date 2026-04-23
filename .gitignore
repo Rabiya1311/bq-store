@@ -1,3 +1,23 @@
-node_modules/
-.env
+
+
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
 .vscode/
+.idea/
+
+# Env & secrets
+.env
+.env.local
+*.log
+
+# Build output (if you use Tailwind CLI later)
+dist/
+node_modules/
+
+# Firebase
+.firebase/
+firebase-debug.log
