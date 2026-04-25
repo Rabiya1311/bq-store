@@ -15,28 +15,26 @@ This project does not include a backend server like Node.js or PHP. Everything r
 The application consists of two main pages:
 
 ### 1. index.html
-- Public login page
-- Users sign in using Firebase Authentication
-- After login, users are redirected to the dashboard
+- Public login page  
+- Users sign in using Firebase Authentication  
+- After login, users are redirected to the dashboard  
 
 ### 2. dashboard.html
-- Protected admin workspace
-- Contains sidebar and topbar layout
-- Uses JavaScript to switch between views
+- Protected admin workspace  
+- Contains sidebar and topbar layout  
+- Uses JavaScript to switch between views  
 
 Inside dashboard.html, views are switched without loading new pages:
-- Products view
-- Categories view
+- Products view  
+- Categories view  
 
-This is handled using client-side routing with JavaScript (location.hash).
+This is handled using client-side routing with JavaScript (`location.hash`).
 
 ---
 
 ## Data Model (Firestore Structure)
 
 Firestore database contains two main collections:
-
-
 categories/
 └── {categoryId}
 ├── name: string
@@ -55,9 +53,9 @@ products/
 
 
 ### Key Decisions:
-- Products use `categoryId` instead of category name to maintain data consistency.
-- Price is stored as an integer (smallest unit like paisa) to avoid decimal errors.
-- Data is stored in flat collections for simplicity and easier querying.
+- Products use `categoryId` instead of category name to maintain data consistency  
+- Price is stored as an integer (smallest unit like paisa) to avoid decimal errors  
+- Data is stored in flat collections for simplicity and easier querying  
 
 ---
 
@@ -82,6 +80,8 @@ bq-store/
 │ └── assets/
 │ ├── icons/
 │ └── images/
+├── design/
+│ └── tokens.md
 ├── firestore.rules
 ├── .env.example
 ├── .gitignore
@@ -94,19 +94,22 @@ bq-store/
 
 1. Clone the repository:
 
-git clone https://github.com/your-username/bq-store.git
+
+git clone https://github.com/Rabiya1311/bq-store.git
 
 
 2. Open the project folder:
+
 
 cd bq-store
 
 
 3. Open with Live Server in VS Code:
-- Right click `index.html`
+- Right click `index.html`  
 - Click "Open with Live Server"
 
 4. Setup environment:
+
 
 cp .env.example .env
 
@@ -115,19 +118,83 @@ cp .env.example .env
 
 ---
 
-## Design Inspiration
+## Design
 
-TBD after Module 03 (Figma design will be provided later in the course).
+Figma Design File:  
+ [https://www.figma.com/design/bFHDpWULrVwNEfmSTbAb0C/Untitled?node-id=0-1&t=6gOUFbshs3B3QRTY-1]
+
+This file includes:
+- Cover page  
+- Login page  
+- Dashboard (Products & Categories)  
+- Components page  
+- Design tokens used for development  
+
+---
+
+## Design Tokens
+
+Design tokens are defined in:
+
+
+design/tokens.md
+
+
+They include:
+- Colors  
+- Typography  
+- Spacing  
+- Border radius  
+- Component specifications  
+
+These tokens ensure consistency between design and development.
 
 ---
 
 ## Happy Path and Failure Paths
 
-When a user adds a new product, they click the "Add Product" button and fill out a form with product details. The data is validated and then sent to Firestore. If successful, the new product appears immediately in the product list without reloading the page.
+### Happy Path
+When a user adds a new product:
+1. Click "Add Product"  
+2. Fill in product details  
+3. Submit form  
+4. Data is validated and sent to Firestore  
+5. Product appears instantly in the list without page reload  
 
-Possible failure points:
-- If the network request fails, the UI should show an error message like "Network error, please try again."
-- If validation fails (missing fields), the UI should highlight the incorrect inputs.
-- If permission is denied by Firebase rules, the UI should show "You do not have permission to p
+---
 
-Workflow verified on date
+### Failure Paths
+
+- **Validation Error**  
+  - Missing or invalid fields  
+  - UI highlights incorrect inputs  
+
+- **Network Error**  
+  - Request fails  
+  - UI shows: "Network error, please try again."  
+
+- **Permission Error**  
+  - Firestore rules block access  
+  - UI shows: "You do not have permission to perform this action."  
+
+---
+
+## Workflow Verification
+
+- Authentication flow tested  
+- Firestore CRUD operations verified  
+- UI updates dynamically without reload  
+
+Workflow verified on date: **[ADD DATE]**
+
+---
+
+## Tech Stack
+
+- HTML  
+- CSS  
+- JavaScript  
+- Firebase Authentication  
+- Firestore Database  
+
+---
