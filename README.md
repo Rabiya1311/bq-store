@@ -1,5 +1,8 @@
 # BQ Store
+# BQ Store
 
+Live Demo: https://bq-store-8ba77-8ba77.web.app 
+GitHub: https://github.com/Rabiya1311/bq-store  
 ## Project Summary
 
 BQ Store is a simple admin dashboard web application built using HTML, CSS, and JavaScript with Firebase as the backend service.  

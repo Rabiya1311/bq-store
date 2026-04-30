@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!--SEO tags-->
+  <meta name="description" content="BQ Store Admin Dashboard — manage products and categories easily with Firebase integration. Simple, fast, and modern admin panel." />
+<meta name="keywords" content="BQ Store, admin dashboard, firebase dashboard, ecommerce admin panel, product management system, firestore admin" />
+<meta name="author" content="BQ Store Team" />
+<!--OG tags-->
+<meta property="og:title" content="BQ Store — Admin Dashboard" />
+<meta property="og:description" content="Manage products and categories easily using a modern Firebase-powered admin dashboard." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://bq-store.com/dashboard" />
+<meta property="og:image" content="https://bq-store.com/preview.png" />
+<meta property="og:site_name" content="BQ Store" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="BQ Store — Admin Dashboard" />
+<meta name="twitter:description" content="Firebase-powered admin panel for managing products and categories." />
+<meta name="twitter:image" content="https://bq-store.com/preview.png" />
+<!--title-->
+<link rel="stylesheet" href="./src/css/styles.css">
+  <title>BQ Store — Dashboard</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#111",
+            border: "#e5e7eb",
+            muted: "#6b7280"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-gray-50 font-sans">
+
+<!-- TOPBAR -->
+<header class="bg-white border-b border-border px-6 py-4 flex justify-between items-center">
+
+  <div class="flex items-center gap-3">
+    <img src="./src/assets/logo.jfif" class="w-8 h-8"/>
+    <div>
+      <p class="font-semibold">BQ Store</p>
+      <p class="text-xs text-muted">Admin</p>
+    </div>
+  </div>
+
+  <input type="text" placeholder="Search..."
+    class="border border-border px-3 py-2 rounded-md text-sm w-64"/>
+
+  <button id="logoutBtn" class="text-sm text-red-500">Logout</button>
+
+</header>
+
+<div class="flex">
+
+<!-- SIDEBAR -->
+<aside class="w-64 bg-white border-r border-border min-h-screen p-4 space-y-2">
+
+  <button class="nav-btn bg-black text-white w-full py-2 rounded-md" data-section="products">
+    Products
+  </button>
+
+  <button class="nav-btn w-full py-2 rounded-md hover:bg-gray-100" data-section="categories">
+    Categories
+  </button>
+
+</aside>
+
+<!-- MAIN -->
+<main class="flex-1 p-6">
+
+  <!-- PRODUCTS -->
+  <section id="productsSection">
+
+    <div class="flex justify-between mb-4">
+      <h1 class="text-xl font-semibold">Products</h1>
+      <button id="addProductBtn" class="bg-black text-white px-4 py-2 rounded-md">
+        Add Product
+      </button>
+    </div>
+
+    <div id="productGrid" class="grid md:grid-cols-3 gap-4"></div>
+
+  </section>
+
+  <!-- CATEGORIES -->
+  <section id="categoriesSection" class="hidden">
+
+    <div class="flex justify-between mb-4">
+      <h1 class="text-xl font-semibold">Categories</h1>
+      <button id="addCategoryBtn" class="bg-black text-white px-4 py-2 rounded-md">
+        Add Category
+      </button>
+    </div>
+
+    <table class="w-full bg-white rounded-md overflow-hidden">
+      <thead class="bg-gray-100 text-left text-sm">
+        <tr>
+          <th class="p-3">Name</th>
+          <th class="p-3">Slug</th>
+          <th class="p-3">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="categoryTable"></tbody>
+    </table>
+
+  </section>
+
+</main>
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="fixed inset-0 bg-black/40 hidden items-center justify-center">
+
+  <div class="bg-white p-6 rounded-md w-96">
+    <h2 id="modalTitle" class="text-lg font-semibold mb-4"></h2>
+
+    <div id="modalBody"></div>
+
+    <div class="flex justify-end gap-2 mt-4">
+      <button onclick="closeModal()" class="px-4 py-2 border rounded-md">Cancel</button>
+      <button id="modalSave" class="bg-black text-white px-4 py-2 rounded-md">Save</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="fixed bottom-4 right-4 space-y-2"></div>
+<script type="module" src="./src/js/dashboard.js"></script>
+</body>
+</html>

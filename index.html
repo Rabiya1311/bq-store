@@ -1,10 +1,121 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>BQ Store</title>
-  </head>
-  <body>
-    <h1>Rabiya Fatima (sandbox test)</h1>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!--SEO tags-->
+  <meta name="description" content="BQ Store Admin Dashboard — manage products and categories easily with Firebase integration. Simple, fast, and modern admin panel." />
+<meta name="keywords" content="BQ Store, admin dashboard, firebase dashboard, ecommerce admin panel, product management system, firestore admin" />
+<meta name="author" content="BQ Store Team" />
+<!--OG tags-->
+<meta property="og:title" content="BQ Store — Admin Dashboard" />
+<meta property="og:description" content="Manage products and categories easily using a modern Firebase-powered admin dashboard." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://bq-store.com/dashboard" />
+<meta property="og:image" content="https://bq-store.com/preview.png" />
+<meta property="og:site_name" content="BQ Store" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="BQ Store — Admin Dashboard" />
+<meta name="twitter:description" content="Firebase-powered admin panel for managing products and categories." />
+<meta name="twitter:image" content="https://bq-store.com/preview.png" />
+<!--title-->
+  <title>BQ Store — Login</title>
+  <link rel="stylesheet" href="./src/css/styles.css">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#111111',
+            'primary-hover': '#000000',
+            border: '#E5E7EB',
+            muted: '#6B7280',
+            danger: '#DC2626'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-gray-50 font-sans text-gray-900">
+
+<main class="min-h-screen flex items-center justify-center p-6">
+
+  <div class="w-full max-w-md bg-white rounded-xl shadow-lg p-8">
+
+    <h1 class="text-2xl font-semibold mb-2">Sign in</h1>
+    <p class="text-sm text-muted mb-6">
+      Enter your credentials to continue
+    </p>
+
+    <form id="login-form" class="space-y-5">
+
+      <!-- EMAIL -->
+      <div>
+        <label class="block text-xs font-medium text-muted mb-1">
+          Email
+        </label>
+        <input
+          id="email"
+          type="email"
+          placeholder="name@company.com"
+          class="w-full border border-border rounded-md px-4 py-3 text-sm
+                 focus:outline-none focus:ring-2 focus:ring-black/20"
+        />
+        <p id="email-error" class="text-xs text-danger mt-1 hidden"></p>
+      </div>
+
+      <!-- PASSWORD -->
+      <div>
+        <label class="block text-xs font-medium text-muted mb-1">
+          Password
+        </label>
+
+        <div class="relative">
+          <input
+            id="password"
+            type="password"
+            placeholder="••••••••"
+            class="w-full border border-border rounded-md px-4 py-3 text-sm
+                   focus:outline-none focus:ring-2 focus:ring-black/20"
+          />
+
+          <button
+            type="button"
+            id="toggle-password"
+            class="absolute right-3 top-3 text-gray-500 text-sm">
+            👁
+          </button>
+        </div>
+
+        <p id="password-error" class="text-xs text-danger mt-1 hidden"></p>
+      </div>
+
+      <!-- BUTTON -->
+      <button
+        type="submit"
+        class="w-full bg-primary text-white py-3 rounded-md text-sm font-medium
+               hover:bg-primary-hover transition">
+        Login
+      </button>
+
+      <p id="form-status" class="text-xs text-center text-muted"></p>
+
+    </form>
+
+  </div>
+
+</main>
+
+<!-- External JS -->
+ <script type="module" src="./src/js/login.js"></script>
+
+</body>
 </html>
